@@ -1,0 +1,31 @@
+<h1 style="color: #3498db;">Classmates</h1>
+<a href="{% url 'classmate_new' %}" style="text-decoration: none; background-color: #27ae60; color: #fff; padding: 10px;">New</a>
+<body style="background-image: url('https://st2.depositphotos.com/4634447/9697/i/450/depositphotos_96978144-Green-chalkboard-background.jpg'); background-opacity: 0.7; background-size: cover;">
+<table border="10",width=100%>
+<thead style="background-color: #3498db;">
+    <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>Gender</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody style="color: #FFFFFF;">
+    {% for classmate in object_list %}
+    <tr>
+    <td>{{ classmate.firstname }}</td>
+    <td>{{ classmate.lastname }}</td>
+    <td>{{ classmate.age }}</td>
+    <td>{{ classmate.address }}</td>
+    <td>{{ classmate.gender}}</td>
+    <td><a href="{% url "classmate_view" classmate.id %}">view</a></td>
+    <td><a href="{% url "classmate_edit" classmate.id %}">edit</a></td>
+    <td><a href="{% url "classmate_delete" classmate.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
